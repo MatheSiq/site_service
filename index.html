@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções de TI - [Seu Nome]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Tech -->
+    <!-- Application Structure Plan: A single-page, top-to-bottom layout was designed to emulate the simplicity of a physical pamphlet while enhancing it with interactivity. The structure flows from a clear value proposition (Hero Section), through an interactive service exploration area (Services Section using an accordion), to trust-building elements (Why Us & How it Works), and finally to a clear Call to Action (Contact). This was chosen because it guides the user logically, prevents information overload, and is highly intuitive for a non-technical audience, making it easy to understand the offerings and get in touch. -->
+    <!-- Visualization & Content Choices: Report Info: List of IT services (formatting, cleaning, etc.). Goal: Inform and engage potential clients. Viz/Presentation Method: Interactive cards/accordion for services, using structured HTML/CSS with Tailwind and Unicode characters for icons. Interaction: Users click on a service card to smoothly expand a detailed description. Justification: This method is more engaging than a static list, keeps the interface clean, and allows users to explore only what interests them, improving usability. The "How it Works" section uses a simple numbered list styled as a process flow to demystify the service steps. Library/Method: Vanilla JavaScript for the accordion interaction, TailwindCSS for all styling. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .service-card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0), padding 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+        }
+        .service-card.active .service-card-details {
+            max-height: 200px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .service-card.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .cta-button {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Desempenho e Segurança para o seu Mundo Digital</h1>
+            <p class="mt-4 text-lg text-gray-600">Soluções de TI profissionais para otimizar, proteger e dar vida nova ao seu computador.</p>
+        </header>
+
+        <main>
+            <section id="services" class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Nossos Serviços</h2>
+                <div class="space-y-4 max-w-2xl mx-auto">
+
+                    <div class="service-card bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300">
+                        <div class="p-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">💻</span>
+                                <h3 class="text-xl font-semibold text-gray-800">Formatação e Otimização de SO</h3>
+                            </div>
+                            <span class="arrow-icon text-2xl text-gray-500">▼</span>
+                        </div>
+                        <div class="service-card-details px-6 text-gray-600">
+                            <p>Instalação limpa e completa do sistema operacional (Windows/Linux/macOS), remoção de vírus e otimização de performance para um computador mais rápido e estável.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300">
+                        <div class="p-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">🌬️</span>
+                                <h3 class="text-xl font-semibold text-gray-800">Manutenção Preventiva</h3>
+                            </div>
+                            <span class="arrow-icon text-2xl text-gray-500">▼</span>
+                        </div>
+                        <div class="service-card-details px-6 text-gray-600">
+                            <p>Limpeza interna completa de poeira e detritos e troca de pasta térmica de alta qualidade para prevenir superaquecimento, aumentar a vida útil e garantir o silêncio do seu equipamento.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300">
+                        <div class="p-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">🚀</span>
+                                <h3 class="text-xl font-semibold text-gray-800">Upgrade de Hardware</h3>
+                            </div>
+                            <span class="arrow-icon text-2xl text-gray-500">▼</span>
+                        </div>
+                        <div class="service-card-details px-6 text-gray-600">
+                            <p>Aumente a velocidade e capacidade do seu computador. Realizamos upgrades de Memória RAM, troca de HD por SSD, e instalação de outros componentes para um desempenho superior.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300">
+                        <div class="p-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">📦</span>
+                                <h3 class="text-xl font-semibold text-gray-800">Instalação de Software</h3>
+                            </div>
+                            <span class="arrow-icon text-2xl text-gray-500">▼</span>
+                        </div>
+                        <div class="service-card-details px-6 text-gray-600">
+                            <p>Configuração e instalação de programas essenciais para o seu dia a dia ou trabalho, como pacotes Office, antivírus, editores de imagem/vídeo e softwares específicos.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="why-us" class="mb-16 bg-white py-12 rounded-lg border border-gray-200">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Por que me escolher?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-3xl mx-auto">
+                    <div>
+                        <span class="text-4xl">🤝</span>
+                        <h3 class="font-bold text-lg mt-2">Serviço de Confiança</h3>
+                        <p class="text-gray-600 mt-1">Atendimento transparente e focado em resolver seu problema de verdade.</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl">💡</span>
+                        <h3 class="font-bold text-lg mt-2">Atendimento Personalizado</h3>
+                        <p class="text-gray-600 mt-1">Entendo sua necessidade para oferecer a melhor e mais econômica solução.</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl">💰</span>
+                        <h3 class="font-bold text-lg mt-2">Preço Justo</h3>
+                        <p class="text-gray-600 mt-1">Qualidade profissional com um valor que cabe no seu bolso.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="text-center bg-gray-800 text-white p-12 rounded-lg">
+                <h2 class="text-3xl font-bold">Pronto para transformar seu computador?</h2>
+                <p class="mt-3 text-lg text-gray-300">Entre em contato agora e solicite um orçamento sem compromisso.</p>
+                <div class="mt-8">
+                    <a href="https://wa.me/5511969423881?text=Olá!%20Vi%20seu%20site%20e%20gostaria%20de%20mais%20informações%20sobre%20seus%20serviços." 
+                       target="_blank"
+                       class="cta-button inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg">
+                        Fale Comigo no WhatsApp
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 text-gray-500">
+            <p>&copy; 2024 Matheus Fernandes Siqueira. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    const currentlyActive = document.querySelector('.service-card.active');
+                    if (currentlyActive && currentlyActive !== this) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
